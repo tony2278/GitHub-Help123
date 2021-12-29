@@ -1,0 +1,81 @@
+
+hosts
+https://ipaddress.com/website/github.com
+
+
+git branch
+git branch -v
+git push
+
+
+Git :fatal: refusing to merge unrelated histories解决
+
+上网查到原因是两个分支是两个不同的版本，具有不同的提交历史
+加一句: 可以允许不相关历史提，强制合并
+$git pull origin master --allow-unrelated-histories
+
+
+(1)新建分支
+git branch 分支名
+
+(2)切换分支
+git checkout 分支名
+
+(3)进行项目上传
+git add .
+git commit -m "提交的信息"
+git remote add origin 远程仓库地址
+git push -u origin 分支名
+
+
+fatal: the remote end hung up unexpectedly
+解决方案:  公司网络慢因此设置git配置参数，否则因此超时退出
+
+git config --global http.lowSpeedLimit 0
+git config --global http.lowSpeedTime 999999
+git config --global http.postBuffer 5242880
+
+
+ 提交文件
+git status ：查看文件
+1.工作区域提交至暂存区：git add 文件
+2.取消在缓存区的存储: git rm --cached
+文件
+3.暂存区提交至仓库 ： git commit -m “提交描述”
+4.同步到远程仓库git push
+
+删除文件
+删除文件： rm test.php
+从Git中删除文件: gir rm test.php
+提交操作: git commit =m "提交描述"
+git push 同步远程仓库
+
+使用http下载出现错误
+禁用校验证书：git config --system http.sslverify false
+
+
+git push origin master 指定远程仓库名和分支名。
+Form github:
+
+Use git push to push commits made on your local branch to a remote repository.
+
+The git push command takes two arguments:
+
+A remote name, for example, origin
+A branch name, for example, master
+For example:
+
+git push  <REMOTENAME> <BRANCHNAME> 
+———————
+
+
+
+
+rename main 2 master: 
+git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
+
+
+
